@@ -3,12 +3,12 @@
 ## Development Commands
 
 ```bash
-npm start              # Expo dev server (choose platform interactively)
-npm run web            # open in browser
-npm run android        # run on Android emulator
-npm run ios            # run on iOS simulator
-npm run typecheck      # tsc --noEmit
-npm run lint           # eslint src app --ext .ts,.tsx
+pnpm start              # Expo dev server (choose platform interactively)
+pnpm run web            # open in browser
+pnpm run android        # run on Android emulator
+pnpm run ios            # run on iOS simulator
+pnpm run typecheck      # tsc --noEmit
+pnpm run lint           # eslint src app --ext .ts,.tsx
 npx expo start --web --clear  # clear Metro cache
 ```
 
@@ -29,14 +29,15 @@ Entry points are thin Expo Router files in `app/` that import from `src/presenta
 
 Configured in both `tsconfig.json` and `babel.config.js` (via `babel-plugin-module-resolver`):
 
-| Alias | Resolves to |
-|---|---|
-| `@domain/*` | `src/domain/*` |
-| `@infra/*` | `src/infrastructure/*` |
-| `@app/*` | `src/application/*` |
-| `@ui/*` | `src/presentation/*` |
-| `@/*` | `src/*` |
-| `@assets/*` | `assets/*` |
+
+| Alias       | Resolves to            |
+| ----------- | ---------------------- |
+| `@domain/*` | `src/domain/*`         |
+| `@infra/*`  | `src/infrastructure/*` |
+| `@app/*`    | `src/application/*`    |
+| `@ui/*`     | `src/presentation/*`   |
+| `@/*`       | `src/*`                |
+| `@assets/*` | `assets/*`             |
 
 ## Routing (Expo Router v3, file-based)
 
@@ -52,6 +53,7 @@ app/(app)/tools/descent-calculator.tsx   # calculator screen
 ## Styling — NativeWind v4 + Tailwind CSS v3
 
 **Critical rules:**
+
 1. `import "../global.css"` must be the **first import** in `app/_layout.tsx`
 2. No `postcss.config.js` — NativeWind uses `withNativeWind` in `metro.config.js` instead
 3. Use `contentContainerStyle` (not `contentContainerClassName`) on `ScrollView`
@@ -59,16 +61,17 @@ app/(app)/tools/descent-calculator.tsx   # calculator screen
 
 **Custom aviation colors** (`tailwind.config.js`):
 
-| Token | Hex |
-|---|---|
-| `sky-950` | `#0a0f1e` |
-| `sky-900` | `#0d1526` |
-| `sky-800` | `#131e38` |
-| `sky-700` | `#1a2847` |
+
+| Token           | Hex       |
+| --------------- | --------- |
+| `sky-950`       | `#0a0f1e` |
+| `sky-900`       | `#0d1526` |
+| `sky-800`       | `#131e38` |
+| `sky-700`       | `#1a2847` |
 | `cockpit-green` | `#00ff88` |
 | `cockpit-amber` | `#ffb347` |
-| `cockpit-red` | `#ff4444` |
-| `cockpit-blue` | `#4da6ff` |
+| `cockpit-red`   | `#ff4444` |
+| `cockpit-blue`  | `#4da6ff` |
 | `cockpit-white` | `#e8f4fd` |
 
 **Font classes:** `font-sans` (Inter 400), `font-sans-medium` (Inter 500), `font-sans-bold` (Inter 700), `font-mono` (SpaceMono 400)
@@ -107,21 +110,23 @@ See `DescentCalculatorPage` and `useDescentCalculator` for a complete reference 
 
 ## Key Version Pins
 
-| Package | Version | Note |
-|---|---|---|
-| `expo` | `~56.0.12` | SDK 56 |
-| `expo-router` | `~56.2.11` | v3; do not upgrade to v4 (requires Expo 53+) |
-| `nativewind` | `^4.1.23` | only supports `tailwindcss@^3` |
-| `tailwindcss` | `^3.4.19` | v3 ONLY — do not upgrade to v4 |
-| `zustand` | `^5.0.3` | |
-| `zod` | `^3.24.4` | |
-| `react-hook-form` | `^7.57.0` | |
-| `@hookform/resolvers` | `^3.9.0` | v3 — not v5; required for rh-form v7 + zod v3 |
+
+| Package               | Version    | Note                                           |
+| --------------------- | ---------- | ---------------------------------------------- |
+| `expo`                | `~56.0.12` | SDK 56                                         |
+| `expo-router`         | `~56.2.11` | v3; do not upgrade to v4 (requires Expo 53+)   |
+| `nativewind`          | `^4.1.23`  | only supports`tailwindcss@^3`                  |
+| `tailwindcss`         | `^3.4.19`  | v3 ONLY — do not upgrade to v4                |
+| `zustand`             | `^5.0.3`   |                                                |
+| `zod`                 | `^3.24.4`  |                                                |
+| `react-hook-form`     | `^7.57.0`  |                                                |
+| `@hookform/resolvers` | `^3.9.0`   | v3 — not v5; required for rh-form v7 + zod v3 |
 
 ## Environment Variables
 
-| Variable | Default | Purpose |
-|---|---|---|
+
+| Variable                   | Default                             | Purpose                       |
+| -------------------------- | ----------------------------------- | ----------------------------- |
 | `EXPO_PUBLIC_API_BASE_URL` | `https://api.flightsimtools.dev/v1` | API base URL (no backend yet) |
 
 Prefix any client-visible env var with `EXPO_PUBLIC_`.
@@ -130,8 +135,9 @@ Prefix any client-visible env var with `EXPO_PUBLIC_`.
 
 Defined in `eas.json`:
 
-| Profile | Distribution | Notes |
-|---|---|---|
-| `development` | internal | dev client enabled |
-| `preview` | internal | QA builds |
-| `production` | store | auto-increments build number |
+
+| Profile       | Distribution | Notes                        |
+| ------------- | ------------ | ---------------------------- |
+| `development` | internal     | dev client enabled           |
+| `preview`     | internal     | QA builds                    |
+| `production`  | store        | auto-increments build number |
