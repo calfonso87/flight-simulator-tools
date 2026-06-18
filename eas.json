@@ -33,7 +33,6 @@
     "production": {
       "ios": {
         "appleId": "developer@example.com",
-        "ascName": "Your Company LLC",
         "sku": "com.example.myapp"
       },
       "android": {
