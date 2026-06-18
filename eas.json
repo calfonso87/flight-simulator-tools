@@ -1,0 +1,45 @@
+{
+  "cli": {
+    "version": ">= 12.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "webUrl": "http://localhost:8081/",
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "fligh-simulator-tools.dev.expo.app"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://fligh-simulator-tools.preview.expo.app"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "channel": "production",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://fligh-simulator-tools.expo.app"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "developer@example.com",
+        "ascName": "Your Company LLC",
+        "sku": "com.example.myapp"
+      },
+      "android": {
+        "serviceAccountKeyPath": "./pc-api-key.json"
+      }
+    }
+  }
+}
