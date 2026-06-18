@@ -1,8 +1,8 @@
 import { View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormField } from "../../molecules/FormField";
-import { Button } from "../../atoms/Button";
+import { FormField } from "@ui/components/molecules";
+import { Button } from "@ui/components/atoms/Button";
 import {
   descentCalculatorSchema,
   DescentCalculatorFormValues,
@@ -18,7 +18,7 @@ export function DescentCalculatorForm({ onSubmit, loading }: DescentCalculatorFo
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<DescentCalculatorFormValues>({
     resolver: zodResolver(descentCalculatorSchema),
     defaultValues: {
@@ -29,7 +29,7 @@ export function DescentCalculatorForm({ onSubmit, loading }: DescentCalculatorFo
     },
   });
 
-  const onValid = (data: DescentCalculatorFormValues) => {
+  const onValid = async (data: DescentCalculatorFormValues) => {
     onSubmit({
       currentAltitudeFt: parseFloat(data.currentAltitudeFt),
       targetAltitudeFt: parseFloat(data.targetAltitudeFt),
@@ -106,6 +106,7 @@ export function DescentCalculatorForm({ onSubmit, loading }: DescentCalculatorFo
         loading={loading}
         size="lg"
         className="mt-2"
+        disabled={isSubmitting}
       />
     </View>
   );
