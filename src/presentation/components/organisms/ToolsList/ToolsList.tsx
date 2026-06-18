@@ -20,6 +20,15 @@ const TOOLS: Tool[] = [
     category: "Navigation",
     isNew: true,
   },
+  {
+    id: "pressure-converter",
+    title: "Pressure Converter",
+    description:
+      "Convert between QNH (hPa/mb) and BARO (inHg) altimeter settings instantly.",
+    href: "/(app)/tools/pressure-converter",
+    category: "Meteorology",
+    isNew: true,
+  },
 ];
 
 export function ToolsList() {
