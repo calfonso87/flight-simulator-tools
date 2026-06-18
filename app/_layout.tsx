@@ -13,13 +13,13 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    Inter_400Regular: require("@expo-google-fonts/inter/Inter_400Regular.ttf"),
+    Inter_400Regular: require("@expo-google-fonts/inter/400Regular/Inter_400Regular.ttf"),
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    Inter_500Medium: require("@expo-google-fonts/inter/Inter_500Medium.ttf"),
+    Inter_500Medium: require("@expo-google-fonts/inter/500Medium/Inter_500Medium.ttf"),
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    Inter_700Bold: require("@expo-google-fonts/inter/Inter_700Bold.ttf"),
+    Inter_700Bold: require("@expo-google-fonts/inter/700Bold/Inter_700Bold.ttf"),
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    SpaceMono_400Regular: require("@expo-google-fonts/space-mono/SpaceMono_400Regular.ttf"),
+    SpaceMono_400Regular: require("@expo-google-fonts/space-mono/400Regular/SpaceMono_400Regular.ttf"),
   });
 
   useEffect(() => {

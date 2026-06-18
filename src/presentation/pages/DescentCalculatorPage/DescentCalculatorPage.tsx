@@ -1,11 +1,11 @@
 import { View } from "react-native";
 import { useDescentCalculator } from "@app/hooks/useDescentCalculator";
-import { CalculatorTemplate } from "../../components/templates/CalculatorTemplate";
-import { AppHeader } from "../../components/organisms/AppHeader";
-import { DescentCalculatorForm } from "../../components/organisms/DescentCalculatorForm";
-import { DescentResultsPanel } from "../../components/organisms/DescentResultsPanel";
-import { Text } from "../../components/atoms/Text";
-import { PermissionGuard } from "../../auth/PermissionGuard";
+import { CalculatorTemplate } from "@ui/components/templates";
+import { AppHeader } from "@ui/components/organisms/AppHeader";
+import { DescentCalculatorForm } from "@ui/components/organisms/DescentCalculatorForm";
+import { DescentResultsPanel } from "@ui/components/organisms/DescentResultsPanel";
+import { Text } from "@ui/components/atoms/Text";
+import { PermissionGuard } from "@ui/auth/PermissionGuard";
 
 export function DescentCalculatorPage() {
   const { calculate, status, result, error } = useDescentCalculator();

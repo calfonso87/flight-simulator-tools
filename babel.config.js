@@ -1,7 +1,7 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: [["babel-preset-expo", { jsxImportSource: "nativewind" }]],
+    presets: ["babel-preset-expo", "nativewind/babel"], // NativeWind belongs here
     plugins: [
       [
         "module-resolver",
@@ -17,8 +17,8 @@ module.exports = function (api) {
           },
         },
       ],
-      "nativewind/babel",
-      "react-native-reanimated/plugin", // Must be last
+      // REMOVED: "nativewind/babel" (It was duplicated here)
+      "react-native-reanimated/plugin", // Kept at the absolute end
     ],
   };
 };
