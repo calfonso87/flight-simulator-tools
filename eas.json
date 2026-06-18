@@ -7,7 +7,6 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "webUrl": "http://localhost:8081/",
       "ios": {
         "simulator": true
       },
